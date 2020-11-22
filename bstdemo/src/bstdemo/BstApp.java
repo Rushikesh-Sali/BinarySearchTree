@@ -1,5 +1,7 @@
 package bstdemo;
 
+import java.util.Scanner;
+
 public class BstApp {
 
 	public static void main(String[] args) {
@@ -15,8 +17,15 @@ public class BstApp {
 		root = obj.insert(root,1);
 		root = obj.insert(root, 14);
 		root = obj.insert(root, 13);
-		//System.out.println("Program run succesfully");
+		System.out.println("Before Deletion");
 		obj.display(root);
+		 Scanner scan=new Scanner(System.in);
+		 System.out.println("enter the element to be deleted");
+		 
+         int key=scan.nextInt();
+         System.out.println("After Deletion");
+         root = obj.Delete(root,key);
+         obj.display(root);
 	}
 
 }

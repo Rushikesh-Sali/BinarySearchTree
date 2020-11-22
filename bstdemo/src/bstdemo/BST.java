@@ -30,8 +30,47 @@ public class BST {
             return;
         }
         display(nd.left);
-        System.out.println(nd.data);
+        System.out.print(nd.data + "  ");
+        
         display(nd.right);
+       // System.out.println(" ");
+    }
+	public node Delete(node nd, int data) {
+		if(nd == null) return nd; 
+		else if(data < nd.data) nd.left = Delete(nd.left,data);
+		else if (data > nd.data) nd.right = Delete(nd.right,data);
+
+		 
+        // if key is same as root's 
+        // key, then This is the
+        // node to be deleted
+        else {
+            // node with only one child or no child
+            if (nd.left == null)
+                return nd.right;
+            else if (nd.right == null)
+                return nd.left;
+ 
+            // node with two children: Get the inorder
+            // successor (smallest in the right subtree)
+            nd.data = minValue(nd.right);
+ 
+            // Delete the inorder successor
+            nd.right = Delete(nd.right, nd.data);
+        }
+ 
+        return nd;
+    }
+ 
+    int minValue(node nd)
+    {
+        int minv = nd.data;
+        while (nd.left != null) 
+        {
+            minv = nd.left.data;
+            nd = nd.left;
+        }
+        return minv;
     }
 
 }
