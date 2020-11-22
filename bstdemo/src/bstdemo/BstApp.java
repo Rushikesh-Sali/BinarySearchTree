@@ -16,6 +16,7 @@ public class BstApp {
 		root = obj.insert(root, 14);
 		root = obj.insert(root, 13);
 		//System.out.println("Program run succesfully");
+		obj.display(root);
 	}
 
 }

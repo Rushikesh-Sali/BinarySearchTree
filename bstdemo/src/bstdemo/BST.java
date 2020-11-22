@@ -25,5 +25,13 @@ public class BST {
 		
 
 	}
+	public void display(node nd){
+        if(nd==null){
+            return;
+        }
+        display(nd.left);
+        System.out.println(nd.data);
+        display(nd.right);
+    }
 
 }
